@@ -38,6 +38,17 @@
         android:layout_marginLeft="25dp"
         android:textColor="@color/colorTextIcons"/>
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationEditText"
+        android:background="@color/colorPrimaryLight"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:padding="8dp"
+        android:hint="Enter Zip Code"/>
+
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,5 +60,4 @@
         android:textSize="20sp"
         android:textColor="@color/colorTextIcons"
         android:background="@color/colorAccent"/>
-
 </RelativeLayout>
