@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG,location);
 
                 Intent intent = new Intent(MainActivity.this, RestaurantsActivity.class);
+                intent.putExtra("location", location);
                 startActivity(intent);
             }
         });
