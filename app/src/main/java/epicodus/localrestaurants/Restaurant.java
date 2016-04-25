@@ -1,6 +1,5 @@
 package epicodus.localrestaurants;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -11,59 +10,57 @@ public class Restaurant {
     private String mPhone;
     private String mWebsite;
     private double mRating;
-    private String mImgeUrl;
+    private String mImageUrl;
     private double mLatitude;
     private double mLongitude;
     private ArrayList<String> mAddress = new ArrayList<>();
     private ArrayList<String> mCategories = new ArrayList<>();
 
-    public Restaurant(String name, String phone, String website, double rating, String imgeUrl, double latitude, double longitude, ArrayList<String> address, ArrayList<String> categories) {
+    public Restaurant(String name, String phone, String website, double rating, String imageUrl, double latitude, double longitude, ArrayList<String> address, ArrayList<String> categories) {
         mName = name;
         mPhone = phone;
-        mWebsite = website;
-        mRating = rating;
-        mImgeUrl = imgeUrl;
-        mLatitude = latitude;
-        mLongitude = longitude;
-        mAddress = address;
-        mCategories = categories;
-    }
+    mWebsite = website;
+    mRating = rating;
+    mImageUrl = imageUrl;
+    mLatitude = latitude;
+    mLongitude = longitude;
+    mAddress = address;
+    mCategories = categories;
+}
 
-    public String getmName() {
+    public String getName() {
         return mName;
     }
 
-    public String getmPhone() {
+    public String getPhone() {
         return mPhone;
     }
 
-    public String getmWebsite() {
+    public String getWebsite() {
         return mWebsite;
     }
 
-    public double getmRating() {
+    public double getRating() {
         return mRating;
     }
 
-    public String getmImgeUrl() {
-        return mImgeUrl;
+    public String getImageUrl() {
+        return mImageUrl;
     }
 
-    public double getmLatitude() {
+    public double getLatitude() {
         return mLatitude;
     }
 
-    public double getmLongitude() {
+    public double getLongitude() {
         return mLongitude;
     }
 
-    public ArrayList<String> getmAddress() {
+    public ArrayList<String> getAddress() {
         return mAddress;
     }
 
-    public ArrayList<String> getmCategories() {
+    public ArrayList<String> getCategories() {
         return mCategories;
     }
-
-
 }
