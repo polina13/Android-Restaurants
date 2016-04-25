@@ -1,6 +1,7 @@
 package epicodus.localrestaurants;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -56,6 +59,17 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    int itemPosition = getLayoutPosition();
+                    Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
+                    intent.putExtra("position", itemPosition + "");
+                    intent.putExtra("restaurants", Parcels.wrap(mRestaurants));
+                    mContext.startActivity(intent);
+                }
+            }
         }
 
         public void bindRestaurant(Restaurant restaurant) {
