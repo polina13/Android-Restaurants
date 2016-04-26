@@ -27,7 +27,7 @@ public class Restaurant {
         mPhone = phone;
     mWebsite = website;
     mRating = rating;
-    mImageUrl = getLargeImageUrl(imageUrl);;
+    mImageUrl = getLargeImageUrl(imageUrl);
     mLatitude = latitude;
     mLongitude = longitude;
     mAddress = address;

@@ -1,6 +1,8 @@
 package epicodus.localrestaurants;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,12 +16,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String TAG = MainActivity.class.getSimpleName();
     @Bind(R.id.findRestaurantsButton) Button mFindRestaurantsButton;
     @Bind(R.id.locationEditText) EditText mLocationEditText;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
 
         mFindRestaurantsButton.setOnClickListener(this);
     }
@@ -29,12 +36,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.findRestaurantsButton:
                 String location = mLocationEditText.getText().toString();
+                if(!(location).equals("")) {
+                    addToSharedPreferences(location);
+                }
                 Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
-                intent.putExtra("location", location);
                 startActivity(intent);
                 break;
             default:
                 break;
         }
+    }
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
     }
 }

@@ -33,10 +33,10 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
 
     private Restaurant mRestaurant;
 
-    public static RestaurantDetailFragment newInstance(Restaurant restuarant) {
+    public static RestaurantDetailFragment newInstance(Restaurant restaurant) {
         RestaurantDetailFragment restaurantDetailFragment = new RestaurantDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("restaurant", Parcels.wrap(restuarant));
+        args.putParcelable("restaurant", Parcels.wrap(restaurant));
         restaurantDetailFragment.setArguments(args);
         return restaurantDetailFragment;
     }
