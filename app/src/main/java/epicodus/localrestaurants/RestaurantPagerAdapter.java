@@ -1,13 +1,13 @@
 package epicodus.localrestaurants;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 
 /**
- * Created by ali on 4/25/16.
+ * Created by staff on 3/9/16.
  */
 public class RestaurantPagerAdapter extends FragmentPagerAdapter {
     private ArrayList<Restaurant> mRestaurants;

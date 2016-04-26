@@ -54,11 +54,10 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         @Bind(R.id.ratingTextView) TextView mRatingTextView;
         private Context mContext;
 
-
         public RestaurantViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
