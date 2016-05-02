@@ -6,6 +6,8 @@ import android.view.View;
 import org.junit.Rule;
 import org.junit.Test;
 
+import epicodus.localrestaurants.ui.RestaurantListActivity;
+
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;

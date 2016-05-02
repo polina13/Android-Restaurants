@@ -1,4 +1,4 @@
-package epicodus.localrestaurants;
+package epicodus.localrestaurants.model;
 
 import org.parceler.Parcel;
 import org.parceler.ParcelConstructor;

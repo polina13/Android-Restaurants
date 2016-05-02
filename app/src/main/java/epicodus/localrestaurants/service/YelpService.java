@@ -1,4 +1,4 @@
-package epicodus.localrestaurants;
+package epicodus.localrestaurants.service;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import epicodus.localrestaurants.Constants;
+import epicodus.localrestaurants.model.Restaurant;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;

@@ -1,4 +1,4 @@
-package epicodus.localrestaurants;
+package epicodus.localrestaurants.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +10,10 @@ import com.firebase.client.Query;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import epicodus.localrestaurants.Constants;
+import epicodus.localrestaurants.adapter.FirebaseRestaurantListAdapter;
+import epicodus.localrestaurants.R;
+import epicodus.localrestaurants.model.Restaurant;
 
 public class SavedRestaurantListActivity extends AppCompatActivity {
     private Query mQuery;

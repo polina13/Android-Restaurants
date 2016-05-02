@@ -10,6 +10,8 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 
+import epicodus.localrestaurants.ui.MainActivity;
+
 import static junit.framework.Assert.assertTrue;
 
 /**

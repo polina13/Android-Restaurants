@@ -1,13 +1,15 @@
-package epicodus.localrestaurants;
+package epicodus.localrestaurants.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+
+import epicodus.localrestaurants.R;
+import epicodus.localrestaurants.model.Restaurant;
 
 /**
  * Created by ali on 4/25/16.

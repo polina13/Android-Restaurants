@@ -1,10 +1,14 @@
-package epicodus.localrestaurants;
+package epicodus.localrestaurants.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.firebase.client.Query;
+
+import epicodus.localrestaurants.R;
+import epicodus.localrestaurants.model.Restaurant;
+import epicodus.localrestaurants.util.FirebaseRecyclerAdapter;
 
 public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<RestaurantViewHolder, Restaurant> {
     public FirebaseRestaurantListAdapter(Query query, Class<Restaurant> itemClass) {

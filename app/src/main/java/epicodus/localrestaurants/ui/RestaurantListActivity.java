@@ -1,8 +1,7 @@
-package epicodus.localrestaurants;
+package epicodus.localrestaurants.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,10 +9,13 @@ import android.support.v7.widget.RecyclerView;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import epicodus.localrestaurants.R;
+import epicodus.localrestaurants.model.Restaurant;
+import epicodus.localrestaurants.adapter.RestaurantListAdapter;
+import epicodus.localrestaurants.service.YelpService;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;

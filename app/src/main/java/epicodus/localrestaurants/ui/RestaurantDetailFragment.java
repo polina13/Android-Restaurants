@@ -1,4 +1,4 @@
-package epicodus.localrestaurants;
+package epicodus.localrestaurants.ui;
 
 
 import android.content.Intent;
@@ -19,6 +19,9 @@ import org.parceler.Parcels;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import epicodus.localrestaurants.Constants;
+import epicodus.localrestaurants.R;
+import epicodus.localrestaurants.model.Restaurant;
 
 public class RestaurantDetailFragment extends Fragment implements View.OnClickListener {
     @Bind(R.id.restaurantImageView) ImageView mImageLabel;

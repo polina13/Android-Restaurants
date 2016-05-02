@@ -1,4 +1,4 @@
-package epicodus.localrestaurants;
+package epicodus.localrestaurants.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,9 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import epicodus.localrestaurants.R;
+import epicodus.localrestaurants.model.Restaurant;
+import epicodus.localrestaurants.ui.RestaurantDetailActivity;
 
 /**
  * Created by ali on 5/2/16.

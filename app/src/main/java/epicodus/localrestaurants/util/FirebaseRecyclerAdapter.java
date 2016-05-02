@@ -1,4 +1,4 @@
-package epicodus.localrestaurants;
+package epicodus.localrestaurants.util;
 
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
