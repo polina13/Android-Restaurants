@@ -24,7 +24,7 @@ public class Restaurant {
 
     public Restaurant() {}
 
-    public Restaurant(String name, String phone, String website, double rating, String imageUrl, ArrayList<String> address, double latitude, double longitude, ArrayList<String> categories) {
+    public Restaurant(String name, String phone, String website, double rating, String imageUrl, double latitude, double longitude, ArrayList<String> address, ArrayList<String> categories) {
         this.name = name;
         this.phone = phone;
         this.website = website;

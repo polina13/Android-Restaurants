@@ -43,18 +43,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFindRestaurantsButton.setOnClickListener(this);
         mSearchedLocationRef = new Firebase(Constants.FIREBASE_URL_SEARCHED_LOCATION);
 
-        mSearchedLocationRefListener = mSearchedLocationRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String locations = dataSnapshot.getValue().toString();
-                Log.d("Location updated", locations);
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
+//        mSearchedLocationRefListener = mSearchedLocationRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String locations = dataSnapshot.getValue().toString();
+//                Log.d("Location updated", locations);
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//
+//            }
+//        });
     }
 
     @Override

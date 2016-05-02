@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -41,8 +42,8 @@ public class YelpService {
     }
 
     //method is based on location from findRestaurants method above "response"
-    public ArrayList<Restaurant> processResults(Response response) {
-        ArrayList<Restaurant> restaurants = new ArrayList<>();
+    public List<Restaurant> processResults(Response response) {
+        List<Restaurant> restaurants = new ArrayList<>();
 
         try {
             String jsonData = response.body().string();
@@ -79,9 +80,7 @@ public class YelpService {
                     restaurants.add(restaurant);
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
+        } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
         return restaurants;

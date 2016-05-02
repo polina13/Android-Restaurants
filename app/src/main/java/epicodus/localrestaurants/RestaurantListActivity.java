@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,7 +25,7 @@ public class RestaurantListActivity extends AppCompatActivity {
     private SharedPreferences mSharedPreferences;
     private String mRecentAddress;
 
-    public ArrayList<Restaurant> mRestaurants = new ArrayList<>();
+    public List<Restaurant> mRestaurants = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
