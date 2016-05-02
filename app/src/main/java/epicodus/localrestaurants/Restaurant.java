@@ -11,15 +11,15 @@ import java.util.ArrayList;
  */
 @Parcel
 public class Restaurant {
-    private String mName;
-    private String mPhone;
-    private String mWebsite;
-    private double mRating;
-    private String mImageUrl;
-    private double mLatitude;
-    private double mLongitude;
-    private ArrayList<String> mAddress = new ArrayList<>();
-    private ArrayList<String> mCategories = new ArrayList<>();
+    String mName;
+    String mPhone;
+    String mWebsite;
+    double mRating;
+    String mImageUrl;
+    double mLatitude;
+    double mLongitude;
+    ArrayList<String> mAddress = new ArrayList<>();
+    ArrayList<String> mCategories = new ArrayList<>();
 
     @ParcelConstructor
     public Restaurant(String name, String phone, String website, double rating, String imageUrl, double latitude, double longitude, ArrayList<String> address, ArrayList<String> categories) {

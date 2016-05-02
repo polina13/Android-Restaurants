@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.firebase.client.Firebase;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -33,20 +35,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.findRestaurantsButton:
-                String location = mLocationEditText.getText().toString();
-                if(!(location).equals("")) {
-                    addToSharedPreferences(location);
-                }
-                Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
-                startActivity(intent);
-                break;
-            default:
-                break;
+        if (v == mFindRestaurantsButton) {
+            String location = mLocationEditText.getText().toString();
+            saveLocationToFirebase(location);
+             if(!(location).equals("")) {
+//                   addToSharedPreferences(location);
+                 Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
+                 intent.putExtra("location", location);
+                 startActivity(intent);
+             }
         }
     }
-    private void addToSharedPreferences(String location) {
-        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+    public void saveLocationToFirebase(String location) {
+        Firebase searchedLocationRef = new Firebase(Constants.FIREBASE_URL_SEARCHED_LOCATION);
+        searchedLocationRef.push().setValue(location);
     }
+    // private void addToSharedPreferences(String location) {
+    //    mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+    //  }
 }
