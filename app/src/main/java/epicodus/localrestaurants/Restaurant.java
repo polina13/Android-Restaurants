@@ -5,69 +5,71 @@ import org.parceler.ParcelConstructor;
 import org.parceler.ParcelProperty;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ali on 4/25/16.
  */
 @Parcel
 public class Restaurant {
-    String mName;
-    String mPhone;
-    String mWebsite;
-    double mRating;
-    String mImageUrl;
-    double mLatitude;
-    double mLongitude;
-    ArrayList<String> mAddress = new ArrayList<>();
-    ArrayList<String> mCategories = new ArrayList<>();
+    String name;
+    String phone;
+    String website;
+    double rating;
+    String imageUrl;
+    List<String> address = new ArrayList<>();
+    double latitude;
+    double longitude;
+    List<String> categories = new ArrayList<>();
 
-    @ParcelConstructor
-    public Restaurant(String name, String phone, String website, double rating, String imageUrl, double latitude, double longitude, ArrayList<String> address, ArrayList<String> categories) {
-        mName = name;
-        mPhone = phone;
-    mWebsite = website;
-    mRating = rating;
-    mImageUrl = getLargeImageUrl(imageUrl);
-    mLatitude = latitude;
-    mLongitude = longitude;
-    mAddress = address;
-    mCategories = categories;
-}
-    @ParcelProperty("name")
+    public Restaurant() {}
+
+    public Restaurant(String name, String phone, String website, double rating, String imageUrl, ArrayList<String> address, double latitude, double longitude, ArrayList<String> categories) {
+        this.name = name;
+        this.phone = phone;
+        this.website = website;
+        this.rating = rating;
+        this.imageUrl = getLargeImageUrl(imageUrl);
+        this.address = address;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.categories = categories;
+    }
+
     public String getName() {
-        return mName;
+        return name;
     }
-    @ParcelProperty("phone")
+
     public String getPhone() {
-        return mPhone;
+        return phone;
     }
-    @ParcelProperty("website")
+
     public String getWebsite() {
-        return mWebsite;
+        return website;
     }
-    @ParcelProperty("rating")
+
     public double getRating() {
-        return mRating;
+        return rating;
     }
-    @ParcelProperty("imageUrl")
+
     public String getImageUrl() {
-        return mImageUrl;
+        return imageUrl;
     }
-    @ParcelProperty("latitude")
+
+    public List<String> getAddress() {
+        return address;
+    }
+
     public double getLatitude() {
-        return mLatitude;
+        return latitude;
     }
-    @ParcelProperty("longitude")
+
     public double getLongitude() {
-        return mLongitude;
+        return longitude;
     }
-    @ParcelProperty("address")
-    public ArrayList<String> getAddress() {
-        return mAddress;
-    }
-    @ParcelProperty("categories")
-    public ArrayList<String> getCategories() {
-        return mCategories;
+
+    public List<String> getCategories() {
+        return categories;
     }
 
     public String getLargeImageUrl(String imageUrl) {
