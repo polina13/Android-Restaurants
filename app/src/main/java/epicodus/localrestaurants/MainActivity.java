@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     @Bind(R.id.findRestaurantsButton) Button mFindRestaurantsButton;
+    @Bind(R.id.savedRestaurantsButton) Button mSavedRestaurantsButton;
     @Bind(R.id.locationEditText) EditText mLocationEditText;
 
     @Override
@@ -39,22 +40,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 //        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 //        mEditor = mSharedPreferences.edit();
-
+        mSavedRestaurantsButton.setOnClickListener(this);
         mFindRestaurantsButton.setOnClickListener(this);
         mSearchedLocationRef = new Firebase(Constants.FIREBASE_URL_SEARCHED_LOCATION);
 
-//        mSearchedLocationRefListener = mSearchedLocationRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                String locations = dataSnapshot.getValue().toString();
-//                Log.d("Location updated", locations);
-//            }
-//
-//            @Override
-//            public void onCancelled(FirebaseError firebaseError) {
-//
-//            }
-//        });
+        mSearchedLocationRefListener = mSearchedLocationRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String locations = dataSnapshot.getValue().toString();
+                Log.d("Location updated", locations);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
     }
 
     @Override
@@ -73,6 +74,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             saveLocationToFirebase(location);
             Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
             intent.putExtra("location", location);
+            startActivity(intent);
+        }
+        if (v == mSavedRestaurantsButton) {
+            Intent intent = new Intent(MainActivity.this, SavedRestaurantListActivity.class);
             startActivity(intent);
         }
     }

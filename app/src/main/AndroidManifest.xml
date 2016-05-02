@@ -21,9 +21,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="epicodus.localrestaurants.RestaurantListActivity"
+            android:name=".RestaurantListActivity"
             android:theme="@style/NoActionBarTheme"/>
-        <activity android:name="epicodus.localrestaurants.RestaurantDetailActivity">
+        <activity android:name=".RestaurantDetailActivity">
+        </activity>
+        <activity android:name=".SavedRestaurantListActivity">
         </activity>
     </application>
 

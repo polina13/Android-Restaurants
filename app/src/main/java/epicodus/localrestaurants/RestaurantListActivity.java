@@ -25,7 +25,7 @@ public class RestaurantListActivity extends AppCompatActivity {
     private SharedPreferences mSharedPreferences;
     private String mRecentAddress;
 
-    public List<Restaurant> mRestaurants = new ArrayList<>();
+    public ArrayList<Restaurant> mRestaurants = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class RestaurantListActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) {
-                mRestaurants = yelpService.processResults(response);
+                mRestaurants = (ArrayList<Restaurant>) yelpService.processResults(response);
 
                 RestaurantListActivity.this.runOnUiThread(new Runnable() {
                     @Override
