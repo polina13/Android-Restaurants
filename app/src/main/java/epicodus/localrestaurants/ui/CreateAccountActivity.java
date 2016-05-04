@@ -17,6 +17,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import epicodus.localrestaurants.Constants;
 import epicodus.localrestaurants.R;
+import epicodus.localrestaurants.model.User;
 
 public class CreateAccountActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = CreateAccountActivity.class.getSimpleName();
@@ -53,8 +54,9 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         mFirebaseRef.createUser(email, password, new Firebase.ValueResultHandler<Map<String, Object>>() {
 
             @Override
-            public void onSuccess(Map<String, Object> stringObjectMap) {
-
+            public void onSuccess(Map<String, Object> result) {
+                String uid = result.get("uid").toString();
+                createUserInFirebaseHelper(name, email, uid);
             }
 
             @Override
@@ -62,5 +64,13 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
                 Log.d(TAG, "error occurrred " + firebaseError);
             }
         });
+
+        mEmailEditText.setText("");
+    }
+
+    private void createUserInFirebaseHelper(final String name, final String email, final String uid) {
+        final Firebase userLocation = new Firebase(Constants.FIREBASE_URL_USERS).child(uid);
+        User newUseer = new User(name, email);
+        userLocation.setValue(newUseer);
     }
 }
