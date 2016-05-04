@@ -21,8 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.RestaurantListActivity"
-            android:theme="@style/NoActionBarTheme"/>
+            android:name=".ui.RestaurantListActivity"/>
         <activity android:name=".ui.RestaurantDetailActivity">
         </activity>
         <activity android:name=".ui.SavedRestaurantListActivity">

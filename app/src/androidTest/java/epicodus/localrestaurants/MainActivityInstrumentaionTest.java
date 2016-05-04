@@ -19,17 +19,4 @@ public class MainActivityInstrumentaionTest {
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule =
             new ActivityTestRule<>(MainActivity.class);
-
-    @Test
-    public void validateEditText() {
-        onView(withId(R.id.locationEditText)).perform(typeText("Portland"))
-                .check(matches(withText("Portland")));
-    }
-
-    @Test
-    public void locationIsSentToRestaurantsActivity() {
-        String location = "Portland";
-        onView(withId(R.id.locationEditText)).perform(typeText(location));
-        onView(withId(R.id.findRestaurantsButton)).perform(click());
-    }
 }
