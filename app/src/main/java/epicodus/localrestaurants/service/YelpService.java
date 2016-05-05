@@ -77,8 +77,7 @@ public class YelpService {
                         categories.add(categoriesJSON.getJSONArray(y).get(0).toString());
                     }
 
-                    Restaurant restaurant = new Restaurant(name, phone, website, rating,
-                            imageUrl, latitude, longitude, address, categories);
+                    Restaurant restaurant = new Restaurant(name, phone, website, rating, imageUrl,address, latitude, longitude, categories);
                     restaurants.add(restaurant);
                 }
             }

@@ -1,5 +1,6 @@
 package epicodus.localrestaurants.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -29,6 +30,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Firebase mFirebaseRef;
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mSharedPreferencesEditor;
+    private ProgressDialog mAuthProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +41,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
         mSharedPreferencesEditor = mSharedPreferences.edit();
         mFirebaseRef = new Firebase(Constants.FIREBASE_URL);
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+        mAuthProgressDialog.setCancelable(false);
+
+        String signupEmail = mSharedPreferences.getString(Constants.KEY_USER_EMAIL, null);
+        if (signupEmail != null) {
+            mEmailEditText.setText(signupEmail);
+        }
 
         mRegisterTextView.setOnClickListener(this);
         mPasswordLoginButton.setOnClickListener(this);
+
     }
 
     @Override
@@ -57,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public void loginWithPassword() {
-        String email = mEmailEditText.getText().toString();
+        final String email = mEmailEditText.getText().toString();
         String password = mPasswordEditText.getText().toString();
 
         if(email.equals("")) {
@@ -67,9 +79,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             mPasswordEditText.setError("Password cannot be blank");
         }
 
+        mAuthProgressDialog.show();
+
         mFirebaseRef.authWithPassword(email, password, new Firebase.AuthResultHandler() {
             @Override
                 public void onAuthenticated(AuthData authData) {
+                    mSharedPreferencesEditor.putString(Constants.KEY_USER_EMAIL, email).apply();
+
+                mAuthProgressDialog.dismiss();
                 if (authData != null) {
                     String userUid = authData.getUid();
 
@@ -86,6 +103,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             public void onAuthenticationError(FirebaseError firebaseError) {
+                mAuthProgressDialog.dismiss();
                 switch (firebaseError.getCode()) {
                     case FirebaseError.INVALID_EMAIL:
                     case FirebaseError.USER_DOES_NOT_EXIST:
